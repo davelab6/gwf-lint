@@ -52,11 +52,11 @@ if len(args) != 2:
     usage()
     fatal()
 
-top_diretory = os.path.abspath(args[0])
+top_directory = os.path.abspath(args[0])
 
 rel_font_dir = args[1]
 
-directory = os.path.abspath(top_diretory + '/' + rel_font_dir)
+directory = os.path.abspath(top_directory + '/' + rel_font_dir)
 
 try:
     os.chdir (directory)
@@ -284,7 +284,7 @@ for kw in checklist_kws:
 # for this font directory:
 # 
 
-checklist_file = os.path.abspath (top_diretory + '/LINT-DATA/' + rel_font_dir + '.checklist')
+checklist_file = os.path.abspath (top_directory + '/LINT-DATA/' + rel_font_dir + '.checklist')
 
 if not os.path.exists (checklist_file):
     # let's go ahead and create the checklist file.
@@ -454,7 +454,7 @@ if has_mandatory_key ('license'):
                 f = open ('LICENSE.txt', 'r')
                 ltxt_contents = f.read ()
                 f.close ()
-                f = open(top_diretory + '/LINT-DATA/LICENSE.txt')
+                f = open(top_directory + '/LINT-DATA/LICENSE.txt')
                 canonical_license = f.read ()
                 f.close ()
             except:
