@@ -224,12 +224,12 @@ def illegal_key_value (key):
     key_value_problem (key, 'illegal value')
 
 
-# For each font directory, there is Dave's checklist
+# For each font directory, there is a checklist
 # of things to approve.   Part of what this tool does
-# is help Dave keep track of what is approved and 
-# what not approved for each directory, even if he 
-# quits work part way through on a given directory and
-# restarts it later.
+# is help you keep track of what is approved and what 
+# not approved for each directory, even if you quit 
+# work part way through on a given directory and
+# restart it later.
 # 
 # So, we have a meta-meta-data file, so to speak, that
 # aims to keep track of the status of the font directory
