@@ -14,7 +14,7 @@ def dbugpr(msg):
     print '#\n# DEBUG:\n#\n' + msg + '\n#######'
 
 def usage():
-    print 'usage:\n  % davelint collection-directory font-subdirectory\n'
+    print 'usage:\n  % gwf-lint.py collection-directory font-subdirectory\n'
 
 def fatal():
     sys.exit(2)
