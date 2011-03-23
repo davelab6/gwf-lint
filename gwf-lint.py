@@ -81,6 +81,8 @@ if len(regular_ttf_files) == 0:
 if not 'METADATA' in fontdir_files:
     errout ('There\'s no METADATA file!')
 
+#    TODODC 2009-03-23 If there isn't one, make one by 
+#        inspecting the regular font, and ask the user for other details
 
 # It's also important that we can read
 # and parse the keyword value pairs
