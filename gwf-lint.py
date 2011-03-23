@@ -251,7 +251,7 @@ def illegal_key_value (key):
 
 checklist_kws = ['license',
                  'visibility',
-                 'paymentschoice',
+                 'payment',
                  'designer',
                  'url',
                  'category',
@@ -551,23 +551,23 @@ else:
 
 checklist_ask ('visibility')
 
-# Check the paymentschoice
+# Check the payment
 #
 # Another simple one:
 # 
 
-begin_checklist_item ('paymentschoice')
+begin_checklist_item ('payment')
 
-if not has_mandatory_key ('paymentschoice'):
-    auto_fail_checklist_item ('paymentschoice', 'no paymentschoice key?')
+if not has_mandatory_key ('payment'):
+    auto_fail_checklist_item ('payment', 'no payment key?')
 else:
-    if not meta['paymentschoice'] in ['POOL', 'ME', 'NONE']:
-        illegal_key_value ('paymentschoice')
-        auto_fail_checklist_item ('paymentschoice', '"' + meta['paymentschoice'] + '"')
+    if not meta['payment'] in ['POOL', 'DESIGNER', 'NONE']:
+        illegal_key_value ('payment')
+        auto_fail_checklist_item ('payment', '"' + meta['payment'] + '"')
     else:
-        auto_win_checklist_item ('paymentschoice', meta['paymentschoice'])
+        auto_win_checklist_item ('payment', meta['payment'])
 
-checklist_ask ('paymentschoice')
+checklist_ask ('payment')
 
 
 # Check the designer
