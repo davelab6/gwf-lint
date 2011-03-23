@@ -5,8 +5,8 @@ import os
 import getopt
 import urlparse
 import re
-import kwval
-from fontTools import ttLib
+# import kwval
+# from fontTools import ttLib
 
 optlist, args = getopt.getopt(sys.argv[1:], '')
 
@@ -139,12 +139,12 @@ if not 'METADATA' in fontdir_files:
 #          'license' : []
 #          'font' : ['Familyname-SubfamilyUltraLight', 
 #                    'Familyname-SubfamilyExtraLight']
-#	   'font.Familyname-SubfamilyUltraLight' : ['ttf']
-#	   'font.Familyname-SubfamilyExtraLight' : ['ttf']
-#	   'font.Familyname-SubfamilyUltraLight.ttf' : ['weight']
-#	   'font.Familyname-SubfamilyExtraLight.ttf' : ['weight']
-#	   'font.Familyname-SubfamilyUltraLight.ttf.weight' : []
-#	   'font.Familyname-SubfamilyExtraLight.ttf.weight' : []
+#       'font.Familyname-SubfamilyUltraLight' : ['ttf']
+#       'font.Familyname-SubfamilyExtraLight' : ['ttf']
+#       'font.Familyname-SubfamilyUltraLight.ttf' : ['weight']
+#       'font.Familyname-SubfamilyExtraLight.ttf' : ['weight']
+#       'font.Familyname-SubfamilyUltraLight.ttf.weight' : []
+#       'font.Familyname-SubfamilyExtraLight.ttf.weight' : []
 #
 # 
 
@@ -282,17 +282,28 @@ for kw in checklist_kws:
 # 
 # So, let's see if there is already a checklist file
 # for this font directory:
-# 
+#
+
+checklist_dir = os.path.abspath (top_directory + '/LINT-DATA/')
+
+if not os.path.exists (checklist_dir):
+    # let's go ahead and create the checklist dir
+    #
+    err (checklist_dir + ' doesnt exist,')
+    os.mkdir (checklist_dir)
+    err (checklist_dir + ' now exists.')
 
 checklist_file = os.path.abspath (top_directory + '/LINT-DATA/' + rel_font_dir + '.checklist')
 
 if not os.path.exists (checklist_file):
+    err (checklist_file + ' doesnt exist,')
     # let's go ahead and create the checklist file.
     #
     f = open (checklist_file, 'w')
     for x in checklist:
         f.write (x + ': no\n')
     f.close()
+    err (checklist_file + ' now exists.')
 
 # The checklist file presumably exists now, either because
 # it did when we started or because we just created it.
@@ -316,7 +327,7 @@ for x in checklist_file_map:
     else:
         checklist[x] = checklist_file_map[x]
 
-done_if_problems('giving up after failure to read checklist file successfully')
+done_if_problems('Giving up after failure to read checklist file successfully.')
 
 # This is how we write the checklist file back out:
 # 
@@ -720,7 +731,7 @@ checklist_ask ('family')
 # Check the description
 # 
 # DAVETODO: Schema for the description check?
-#	TOMTODO: schema p, a, em, strong, ol, ul, li   multiple paragraphs
+#    TOMTODO: schema p, a, em, strong, ol, ul, li   multiple paragraphs
 #
 # 
 # For now, this is just a "by eye" check.
