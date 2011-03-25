@@ -8,6 +8,8 @@ import re
 # import kwval
 # from fontTools import ttLib
 
+# Line 13 to 57 seem like weird homebrew - there must be a good python library for dealing with this stuff :)
+
 optlist, args = getopt.getopt(sys.argv[1:], '')
 
 def dbugpr(msg):
@@ -136,9 +138,9 @@ if not 'METADATA' in fontdir_files:
 # The global variable meta_kids is a dictionary that 
 # maps all nodes to dictionaries of (names of) their kids:
 # 
-#          'license' : []
-#          'font' : ['Familyname-SubfamilyUltraLight', 
-#                    'Familyname-SubfamilyExtraLight']
+#       'license' : []
+#       'font' : ['Familyname-SubfamilyUltraLight', 
+#                'Familyname-SubfamilyExtraLight']
 #       'font.Familyname-SubfamilyUltraLight' : ['ttf']
 #       'font.Familyname-SubfamilyExtraLight' : ['ttf']
 #       'font.Familyname-SubfamilyUltraLight.ttf' : ['weight']
