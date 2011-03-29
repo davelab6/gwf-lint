@@ -834,4 +834,8 @@ print ' menu file checking'
 print ' compilability checking'
 print ' run fontlnit / fontaine'
 
+# check the BIO directory+files exist for all designer key values, check they
+# have a portrait.[png,jpg] and that the content (mimetype) matches the 
+# filename extension
+
 errout ('gasp!')
